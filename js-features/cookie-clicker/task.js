@@ -7,4 +7,8 @@ cookie.onclick = function(){
         cookie.width = 200
     }, 100)
     cookie.width = 150
+
+
+
+    
 }
