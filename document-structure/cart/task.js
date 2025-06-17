@@ -20,10 +20,11 @@ quantityControlButtons.forEach(quantityControlButton => {
 
 addProductsToCartButtons.forEach(addProductsToCartButton => {
     addProductsToCartButton.addEventListener('click', () => {
+        const cartProducts = cart.querySelector('.cart__products');
         const product = addProductsToCartButton.closest('.product');
         const productId = product.dataset.id;
         const productQuantity = parseInt(product.querySelector('.product__quantity-value').textContent);
-        const existingCartItem = cart.querySelector(`.cart__product[data-id='${productId}']`)
+        const existingCartItem = cartProducts.querySelector(`.cart__product[data-id='${productId}']`)
         if (existingCartItem) {
             const itemQuantity = parseInt(existingCartItem.querySelector('.cart__product-count').textContent)
             existingCartItem.querySelector('.cart__product-count').textContent = productQuantity + itemQuantity;
@@ -34,8 +35,8 @@ addProductsToCartButtons.forEach(addProductsToCartButton => {
             cartItem.innerHTML = `
             <img class="cart__product-image" src="${product.querySelector('.product__image').getAttribute('src')}" alt="">
             <div class="cart__product-count">${productQuantity}</div>
-`
-            cart.append(cartItem)
+            `
+            cartProducts.append(cartItem)
         }
     })
 })

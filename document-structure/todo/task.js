@@ -4,7 +4,7 @@ const list = document.querySelector('.tasks__list')
 
 button.addEventListener('click', (e) => {
     e.preventDefault()
-    if(input.value === '') {
+    if(input.value.trim() === '') {
         return
     } 
     list.insertAdjacentHTML('beforeEnd', `<div class="task"><div class="task__title">${input.value}</div><a href="#" class="task__remove">&times;</a></div>`);
